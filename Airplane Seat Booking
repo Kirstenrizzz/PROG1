@@ -33,6 +33,7 @@ int main(){
     }
     else{
         excessbaggagefee=0.00;
+
     }
     totalfare = basefare+excessbaggagefee;
 
