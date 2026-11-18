@@ -1,0 +1,57 @@
+#include <stdio.h>
+int main(){
+
+    float basefare,baggageallowance,excessbaggagefee,baggageweight,totalfare;
+    char travelclass;
+
+    printf("Enter Travel Class (E-conomy / B-usiness): ");
+    scanf("%c",&travelclass);
+
+    printf("Enter Baggage Weight (kg): ");
+    scanf("%f", &baggageweight);
+
+    if(travelclass=='E' || travelclass=='e'){
+        basefare=2500.00;
+        baggageallowance=20;
+    }
+    else if(travelclass=='B' || travelclass=='b'){
+        basefare=6500.00;
+        baggageallowance=40;
+    }
+
+    else{
+        printf("Invalid Tavel Class.\n");
+        return 0;
+    }
+    
+    if (baggageweight < 0){
+        printf("Invalid Baggage Weight.\n");
+        return 0;
+    }
+    if (baggageweight > baggageallowance){
+       excessbaggagefee=(baggageweight-baggageallowance)*150.00;
+    }
+    else{
+        excessbaggagefee=0.00;
+    }
+    totalfare = basefare+excessbaggagefee;
+
+    printf("\n-----BOARDING SUMMARY-----\n");
+
+    if(travelclass=='E' || travelclass=='e'){
+        printf("Travel Class Economy\n");
+    }
+    else {
+        printf("Travel Class Business\n");
+    }
+
+    printf("Base Fare: PHP %.2f\n",basefare);
+    printf("Baggage Weight: %.1f\n",baggageweight);
+    printf("Baggage Allowance:%.0f\n",baggageallowance);
+    printf("Excess Baggage Fee: PHP %.2f\n",excessbaggagefee);
+    printf("Total Fee: PHP %.2f\n",totalfare);
+
+    printf("\n---------------------------\n");
+    
+    return 0;
+}
